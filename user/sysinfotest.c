@@ -129,7 +129,7 @@ void testfd(){
   int fd = open("cat",O_RDONLY);
 
   sinfo(&info);
-  if(info.freefd != nfd + 1) {
+  if(info.freefd != nfd - 1) {
     printf("sysinfotest: FAIL freefd is %d instead of %d\n", info.freefd, nfd+1);
     exit(1);
   }
@@ -138,14 +138,14 @@ void testfd(){
     dup(fd);
   }
   sinfo(&info);
-  if(info.freefd != nfd + 11) {
+  if(info.freefd != nfd - 11) {
     printf("sysinfotest: FAIL freefd is %d instead of %d\n", info.freefd, nfd+11);
     exit(1);
   }
 
   close(fd);
   sinfo(&info);
-  if(info.freefd != nfd + 10) {
+  if(info.freefd != nfd - 10) {
     printf("sysinfotest: FAIL freefd is %d instead of %d\n", info.freefd, nfd+10);
     exit(1);
   }

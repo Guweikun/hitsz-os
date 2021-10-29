@@ -119,6 +119,9 @@ sys_trace(void)
         p->mask[i++] = '1';
       }
     }
+    for(i=i;i < 24;i++){
+      p->mask[i] = '0';
+    }
   }
   return 0;
 }

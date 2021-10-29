@@ -112,7 +112,10 @@ sys_trace(void)
     while(n){
       tmp = n%2;
       n = n/2;
-      if(tmp == 0){
+      if(i > 23){
+        n = 0;
+      }
+      else if(tmp == 0){
         p->mask[i++] = '0';
       }
       else if(tmp == 1){
